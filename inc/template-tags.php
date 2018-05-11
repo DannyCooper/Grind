@@ -20,6 +20,41 @@ if ( ! function_exists( 'grind_the_custom_logo' ) ) :
 	}
 endif;
 
+/**
+ * Output the site title.
+ */
+function grind_site_title() {
+	if ( is_front_page() && is_home() ) : ?>
+
+		<h1 class="site-title">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<?php bloginfo( 'name' ); ?>
+			</a>
+		</h1>
+
+	<?php else : ?>
+
+		<p class="site-title">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<?php bloginfo( 'name' ); ?>
+			</a>
+		</p>
+
+	<?php
+	endif;
+}
+
+/**
+ * Output the site description.
+ */
+function grind_site_description() {
+	$description = get_bloginfo( 'description', 'display' );
+	$enabled     = get_theme_mod( 'enable-site-description', true );
+	if ( $description && $enabled ) {
+		echo '<p class="site-description">' . $description . '</p>'; /* WPCS: xss ok. */
+	}
+}
+
 if ( ! function_exists( 'grind_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
@@ -120,6 +155,24 @@ if ( ! function_exists( 'grind_the_posts_navigation' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'grind_full_width_thumbnail' ) ) :
+	/**
+	 * Output the thumbnail if it exists.
+	 */
+	function grind_full_width_thumbnail() {
+
+		$_post = get_queried_object();
+		$size  = get_theme_mod( 'featured-image-style-posts', 'content-width' );
+
+		if ( 'wide' !== $size || 'full-width' !== $size || ! is_single() ) {
+			return;
+		}
+
+		echo '<div class="' . esc_attr( $size ) . '-thumbnail">' . get_the_post_thumbnail( $_post->ID ) . '</div>';
+
+	}
+endif;
+
 if ( ! function_exists( 'grind_thumbnail' ) ) :
 	/**
 	 * Output the thumbnail if it exists.
@@ -128,7 +181,14 @@ if ( ! function_exists( 'grind_thumbnail' ) ) :
 	 */
 	function grind_thumbnail( $size = '' ) {
 
-		if ( has_post_thumbnail() ) { ?>
+		$style = get_theme_mod( 'featured-image-style-posts', 'content-width' );
+
+		if ( 'content-width' !== $style ) {
+			return;
+		}
+
+		if ( has_post_thumbnail() ) {
+			?>
 			<div class="post-thumbnail">
 
 				<?php if ( ! is_single() ) : ?>

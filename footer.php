@@ -18,6 +18,23 @@
 
 	<footer class="site-footer">
 		<div class="wrapper">
+			<aside class="widget-area">
+				<?php dynamic_sidebar( 'footer-1' ); ?>
+			</aside><!-- .widget-area -->
+			<aside class="widget-area">
+				<?php dynamic_sidebar( 'footer-2' ); ?>
+			</aside><!-- .widget-area -->
+			<aside class="widget-area">
+				<?php dynamic_sidebar( 'footer-3' ); ?>
+			</aside><!-- .widget-area -->
+			<aside class="widget-area">
+				<?php dynamic_sidebar( 'footer-4' ); ?>
+			</aside><!-- .widget-area -->
+		</div><!-- .wrapper -->
+	</footer><!-- .site-footer -->
+
+	<footer class="sub-footer">
+		<div class="wrapper">
 			<div class="site-info">
 
 				<?php

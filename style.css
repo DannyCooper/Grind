@@ -1,5 +1,5 @@
 /*
-Theme Name: Janus
+Theme Name: Grind
 Theme URI: https://olympusthemes.com/themes/grind/
 Author: DannyCooper
 Author URI: https://olympusthemes.com/
@@ -1425,14 +1425,32 @@ figure.wp-block-image {
 }
 
 .post-template-gutenberg .site-content .wrapper,
-.content-area {
+.post-template-gutenberg .content-area {
 	width: 100%;
 	max-width: 100%;
 }
 
-.entry-content > * {
+.post-template-gutenberg  .entry-content > * {
 	width: 1040px;
 	margin: 0 auto;
 	display: block;
 	float: none
+}
+
+.header__right {
+	float: right;
+	width: 50%;
+}
+
+.notice {
+	background: #e6e6e6;
+	padding: 30px;
+	border: 1px solid #d0d0d0;
+	text-align: center;
+}
+
+.full-width-thumbnail {
+	text-align: center;
+	margin-bottom: 50px;
+	margin-top: -75px;
 }

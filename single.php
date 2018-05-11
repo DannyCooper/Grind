@@ -9,7 +9,9 @@
  * @license    http://opensource.org/licenses/gpl-2.0.php GNU Public License
  */
 
-get_header(); ?>
+get_header();
+
+?>
 
 	<div class="content-area">
 
@@ -18,7 +20,7 @@ get_header(); ?>
 
 			the_post();
 
-			get_template_part( 'template-parts/content', get_post_format() );
+			get_template_part( 'template-parts/content/content', '' );
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :

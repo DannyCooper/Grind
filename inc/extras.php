@@ -30,6 +30,24 @@ function grind_body_classes( $classes ) {
 		$classes[] = 'comments-closed';
 	}
 
+	$header_position = get_theme_mod( 'header-position', 'left' );
+	$classes[]       = 'header-position-' . $header_position;
+
+	$tagline_position = get_theme_mod( 'tagline-position', 'below' );
+	$classes[]        = 'tagline-position-' . $tagline_position;
+
+	$post_layout = get_theme_mod( 'post-layout', '1' );
+	$classes[]   = 'post-layout-' . $post_layout;
+
+	$page_layout = get_theme_mod( 'page-layout', '1' );
+	$classes[]   = 'page-layout-' . $page_layout;
+
+	$footer_layout = get_theme_mod( 'footer-layout', '1' );
+	$classes[]     = 'footer-layout-' . $footer_layout;
+
+	$sub_footer_layout = get_theme_mod( 'sub-footer-layout', 'normal' );
+	$classes[]         = 'sub-footer-layout-' . $sub_footer_layout;
+
 	return $classes;
 }
 add_filter( 'body_class', 'grind_body_classes' );

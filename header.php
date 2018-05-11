@@ -27,14 +27,10 @@
 
 <div class="site-wrapper">
 
-	<header class="site-header">
-		<div class="wrapper">
-			<?php get_template_part( 'template-parts/branding' ); ?>
-			<?php get_template_part( 'template-parts/menu-2' ); ?>
-		</div><!-- .wrapper -->
-	</header><!-- .site-header -->
-
-	<?php get_template_part( 'template-parts/menu-1' ); ?>
+	<?php get_template_part( 'template-parts/header/wrapper' ); ?>
 
 	<div class="site-content">
+
+		<?php grind_full_width_thumbnail(); ?>
+
 		<div class="wrapper">

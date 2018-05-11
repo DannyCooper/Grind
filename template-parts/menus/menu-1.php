@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying the primary navigation menu.
+ * Template part for displaying the navigation menu within the header.
  *
  * @package    grind
  * @copyright  Copyright (c) 2018, Danny Cooper
@@ -23,7 +23,6 @@ if ( ! has_nav_menu( 'menu-1' ) ) {
 		wp_nav_menu( array(
 			'theme_location' => 'menu-1',
 			'menu_id'        => 'site-menu',
-			'fallback_cb'    => false,
 		) );
 		?>
 	</div><!-- .wrapper -->

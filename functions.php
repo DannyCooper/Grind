@@ -39,8 +39,9 @@ if ( ! function_exists( 'grind_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary Menu', 'grind' ),
-			'menu-2' => esc_html__( 'Secondary Menu', 'grind' ),
+			'menu-1' => esc_html__( 'Header Menu', 'grind' ),
+			'menu-2' => esc_html__( 'Above Header Menu', 'grind' ),
+			'menu-3' => esc_html__( 'Below Header Menu', 'grind' ),
 		) );
 
 		/*
@@ -123,6 +124,15 @@ function grind_widgets_init() {
 	register_sidebar( array(
 		'name'          => esc_html__( 'Sidebar', 'grind' ),
 		'id'            => 'sidebar-1',
+		'description'   => esc_html__( 'Add widgets here.', 'grind' ),
+		'before_widget' => '<section class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Header', 'grind' ),
+		'id'            => 'header',
 		'description'   => esc_html__( 'Add widgets here.', 'grind' ),
 		'before_widget' => '<section class="widget %2$s">',
 		'after_widget'  => '</section>',

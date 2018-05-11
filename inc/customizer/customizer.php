@@ -16,6 +16,10 @@ function grind_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	$wp_customize->get_control( 'custom_logo' )->section = 'header';
+	$wp_customize->get_control( 'blogname' )->section = 'header';
+	$wp_customize->get_control( 'blogdescription' )->section = 'header';
+	$wp_customize->get_control( 'display_header_text' )->section = 'header';
 }
 add_action( 'customize_register', 'grind_customize_register' );
 

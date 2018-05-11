@@ -66,7 +66,7 @@ function customizer_helper_settings() {
 			'boxed'      => 'Boxed',
 			'full-width' => 'Full Width',
 		),
-		'default' => 'left',
+		'default' => 'boxed',
 	);
 
 	$section = 'header';
@@ -102,19 +102,13 @@ function customizer_helper_settings() {
 		'default' => 'left',
 	);
 
-	$settings['enable-site-description'] = array(
-		'id'      => 'site-description',
-		'label'   => __( 'Show Tagline', 'grind' ),
-		'section' => $section,
-		'type'    => 'checkbox',
-	);
-
 	$settings['tagline-position'] = array(
 		'id'      => 'tagline-position',
 		'label'   => __( 'Tagline Position', 'grind' ),
 		'section' => $section,
 		'type'    => 'select',
 		'choices' => array(
+			'hidden'  => 'Hidden',
 			'below'  => 'Below',
 			'inline' => 'Inline',
 		),
@@ -214,6 +208,28 @@ function customizer_helper_settings() {
 		'default' => 'empty',
 	);
 
+	$section = 'featured-images';
+
+	$sections[] = array(
+		'id'       => $section,
+		'title'    => __( 'Featured Images', 'grind' ),
+		'priority' => '10',
+		'panel'    => $panel,
+	);
+
+	$settings['featured-images-width'] = array(
+		'id'      => 'featured-images-width',
+		'label'   => __( 'Featured Image Width', 'grind' ),
+		'section' => $section,
+		'type'    => 'select',
+		'choices' => array(
+			'content'  => 'Content Width',
+			'full'    => 'Full Width',
+			'stretch' => 'Stretch',
+		),
+		'default' => 'content',
+	);
+
 	$section = 'posts';
 
 	$sections[] = array(
@@ -223,11 +239,71 @@ function customizer_helper_settings() {
 		'panel'    => $panel,
 	);
 
+	$settings['enable-posts-sidebar'] = array(
+		'id'      => 'enable-posts-sidebar',
+		'label'   => __( 'Enable Sidebar on Posts', 'grind' ),
+		'description' => __( 'Applied to the header on small screens and the sidebar on wide screens.', 'grind' ),
+		'section' => $section,
+		'type'    => 'checkbox',
+		'default' => 1,
+	);
+
 	$settings['post-content-position'] = array(
 		'id'      => 'post-content-position',
-		'label'   => __( 'Example Text Input', 'grind' ),
+		'label'   => __( 'Post Content Position', 'grind' ),
+		'description' => __( 'Applied to the header on small screens and the sidebar on wide screens.', 'grind' ),
 		'section' => $section,
-		'type'    => 'text',
+		'type'    => 'select',
+		'choices' => array(
+			'left'  => 'Left',
+			'center'    => 'Center',
+		),
+		'default' => 'left',
+	);
+
+	$settings['post-meta-position'] = array(
+		'id'      => 'post-meta-position',
+		'label'   => __( 'Post Meta Position', 'grind' ),
+		'section' => $section,
+		'type'    => 'select',
+		'choices' => array(
+			'top'  => 'Top',
+			'bottom'    => 'Bottom',
+			'left'    => 'Left',
+		),
+		'default' => 'left',
+	);
+
+	$settings['show-post-author'] = array(
+		'id'      => 'show-post-author',
+		'label'   => __( 'Show Post Author', 'grind' ),
+		'section' => $section,
+		'type'    => 'checkbox',
+		'default' => 1,
+	);
+
+	$settings['show-post-date'] = array(
+		'id'      => 'show-post-date',
+		'label'   => __( 'Show Post Date', 'grind' ),
+		'section' => $section,
+		'type'    => 'checkbox',
+		'default' => 1,
+	);
+
+	$settings['show-post-cats'] = array(
+		'id'      => 'show-post-cats',
+		'label'   => __( 'Show Post Categories', 'grind' ),
+		'section' => $section,
+		'type'    => 'checkbox',
+		'default' => 1,
+	);
+
+	$settings['show-post-tags'] = array(
+		'id'      => 'show-post-tags',
+		'label'   => __( 'Show Post Tags', 'grind' ),
+		'section' => $section,
+		'type'    => 'checkbox',
+		'default' => 1,
 	);
 
 	$section = 'pages';
@@ -239,11 +315,24 @@ function customizer_helper_settings() {
 		'panel'    => $panel,
 	);
 
-	$settings['page-setting'] = array(
-		'id'      => 'page-setting',
-		'label'   => __( 'Example Text Input', 'grind' ),
+	$settings['enable-pages-sidebar'] = array(
+		'id'      => 'enable-pages-sidebar',
+		'label'   => __( 'Enable Sidebar on Pages', 'grind' ),
 		'section' => $section,
-		'type'    => 'text',
+		'type'    => 'checkbox',
+		'default' => 1,
+	);
+
+	$settings['page-content-position'] = array(
+		'id'      => 'page-content-position',
+		'label'   => __( 'Page Content Position', 'grind' ),
+		'section' => $section,
+		'type'    => 'select',
+		'choices' => array(
+			'left'  => 'Left',
+			'center'    => 'Center',
+		),
+		'default' => 'left',
 	);
 
 	$section = 'archives';
